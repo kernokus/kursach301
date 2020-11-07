@@ -29,38 +29,32 @@ class TempHumidityViewModel (application: Application): AndroidViewModel(applica
     var bufferForTempAndHum: MutableLiveData<String?> = MutableLiveData(null)
 
     fun getTempAndHumidity(){
-
         viewModelScope.launch {
             try {
-                val connection= GattConnection(deviceFor(macMK))
+                val connection= GattConnection(deviceFor(macMK)) //инициализация соединения
                 connection.logConnectionChanges() //логирование процесса
-                connection.connect()
-                val services=connection.discoverServices()
+                connection.connect() //попытка подключения
+                val services=connection.discoverServices() //получение всех возможных сервисов устройства
                 services.forEach { it ->
                     if (it.uuid == serviceUUID) {
                         it.characteristics.forEach {
                             if (it.uuid == characteristicUUID) {
-                                this@TempHumidityViewModel.bluetoothGattCharacteristic=it
+                                this@TempHumidityViewModel.bluetoothGattCharacteristic=it //перебираем и получаем необходимую характеристику
                             }
                         }
                     }
                 }
-                setCharacteristicNotification(connection,bluetoothGattCharacteristic,true)
-                val msg: ByteArray = WRITE_TEST_TEMP_AND_HUMIDITY.toByteArray()
-                bluetoothGattCharacteristic.value = msg
+                setCharacteristicNotification(connection,bluetoothGattCharacteristic,true) //оповещаем устройство о том, что оно может обновлять нашу хар-ку
+                val msg: ByteArray = WRITE_TEST_TEMP_AND_HUMIDITY.toByteArray() //формирование сообщения
+                bluetoothGattCharacteristic.value = msg //запись в характеристику данных локально
                 Log.d("characterInSend",bluetoothGattCharacteristic.value.toString())
-                connection.writeCharacteristic(bluetoothGattCharacteristic)
-                connection.notifyChannel.receive()
-                
-                bufferForTempAndHum.value=bluetoothGattCharacteristic.getStringValue(0)
-
-
-                connection.close()
-
-
+                connection.writeCharacteristic(bluetoothGattCharacteristic) //запись характеристики на устройство
+                connection.notifyChannel.receive() //обновление канала данных
+                bufferForTempAndHum.value=bluetoothGattCharacteristic.getStringValue(0) //в переменную кладётся полученный с устройства ответ - с датчика
+                connection.close() //окончание соединения
             }
             catch (e: Exception) {
-                Log.e("ошибка",e.toString())
+                Log.e("ошибка",e.toString()) //обработка ошибки
             }
         }
     }
