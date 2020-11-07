@@ -39,18 +39,21 @@ class TempHumidityViewModel (application: Application): AndroidViewModel(applica
                     if (it.uuid == serviceUUID) {
                         it.characteristics.forEach {
                             if (it.uuid == characteristicUUID) {
-                                this@TempHumidityViewModel.bluetoothGattCharacteristic=it //перебираем и получаем необходимую характеристику
+                                this@TempHumidityViewModel.bluetoothGattCharacteristic=it 
+                                //перебираем и получаем необходимую характеристику
                             }
                         }
                     }
                 }
-                setCharacteristicNotification(connection,bluetoothGattCharacteristic,true) //оповещаем устройство о том, что оно может обновлять нашу хар-ку
+                //оповещаем устройство о том, что оно может обновлять нашу хар-ку                
+                setCharacteristicNotification(connection,bluetoothGattCharacteristic,true) 
                 val msg: ByteArray = WRITE_TEST_TEMP_AND_HUMIDITY.toByteArray() //формирование сообщения
                 bluetoothGattCharacteristic.value = msg //запись в характеристику данных локально
                 Log.d("characterInSend",bluetoothGattCharacteristic.value.toString())
                 connection.writeCharacteristic(bluetoothGattCharacteristic) //запись характеристики на устройство
                 connection.notifyChannel.receive() //обновление канала данных
-                bufferForTempAndHum.value=bluetoothGattCharacteristic.getStringValue(0) //в переменную кладётся полученный с устройства ответ - с датчика
+                //в переменную кладётся полученный с устройства ответ - с датчика                
+                bufferForTempAndHum.value=bluetoothGattCharacteristic.getStringValue(0) 
                 connection.close() //окончание соединения
             }
             catch (e: Exception) {
