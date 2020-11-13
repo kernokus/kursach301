@@ -25,11 +25,12 @@ class MenuFragment:Fragment() {
         TabLayoutMediator(tabs, viewPager,
             TabLayoutMediator.TabConfigurationStrategy { tab, position ->
                 when (position) {
-                    0 -> { tab.text = "Температура"
+                    0 -> { tab.text = "HelloWorld"
+
                     //tab.icon= activity?.getDrawable(R.drawable.temperature_view_pager_1_icon)
                         }
-                    1 -> { tab.text = "Освещённость"}
-                    2->  {tab.text="Настройки"}
+                    1 -> { tab.text = "TempHumid"}
+                    2->  {tab.text="Резерв"}
                 }
             }).attach()
     }
