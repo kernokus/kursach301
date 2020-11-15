@@ -9,7 +9,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_hor_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_hor_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -24,25 +38,21 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/continueBtn"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="Продолжить"
-        android:textAllCaps="false"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gl_hor_1" />
+        style="@style/MainBtn"
+        android:text="@string/продолжить"
+        app:layout_constraintBottom_toTopOf="@+id/settingBtn"
+
+        app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
+        app:layout_constraintStart_toStartOf="@+id/gl_hor_2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/settingBtn"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="Настройки"
-        android:textAllCaps="false"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/continueBtn" />
+        style="@style/MainBtn"
+        android:text="@string/setting"
+        app:layout_constraintBottom_toTopOf="@+id/gl_hor_1"
+
+        app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
+        app:layout_constraintStart_toStartOf="@+id/gl_hor_2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,10 +31,12 @@ class TempHumidityViewModel (application: Application): AndroidViewModel(applica
     fun getTempAndHumidity(){
         viewModelScope.launch {
             try {
-                val connection= GattConnection(deviceFor(macMK)) //инициализация соединения
+                //инициализация соединения
+                val connection= GattConnection(deviceFor(macMK))
                 connection.logConnectionChanges() //логирование процесса
                 connection.connect() //попытка подключения
-                val services=connection.discoverServices() //получение всех возможных сервисов устройства
+                val services=connection.discoverServices()
+                //получение всех возможных сервисов устройства
                 services.forEach { it ->
                     if (it.uuid == serviceUUID) {
                         it.characteristics.forEach {

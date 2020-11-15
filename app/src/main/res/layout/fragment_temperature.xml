@@ -8,35 +8,51 @@
 
     <TextView
         android:id="@+id/temperatureTV"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="100dp"
         android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </TextView>
+        android:textSize="30sp"
+        android:textColor="@color/colorBlueDark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_hor_4"
+        app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
+        app:layout_constraintStart_toStartOf="@+id/gl_hor_2"
+        />
 
-    <TextView
-        android:textSize="25dp"
-        android:textColor="@color/colorBlack"
-        android:id="@+id/humidityTV"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/temperatureTV">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_hor_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
 
-    </TextView>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_hor_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_hor_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_hor_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/readInfoTV"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        style="@style/MainBtn"
         android:text="Начать чтение"
-        android:textAllCaps="false"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintBottom_toTopOf="@+id/gl_hor_1"
+        app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/humidityTV" />
+        app:layout_constraintStart_toStartOf="@+id/gl_hor_2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

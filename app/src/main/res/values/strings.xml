@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">kursach301</string>
-    <string name="connectMK">Подкючиться к сопряженному устройству</string>
+    <string name="connectMK">Подкючиться</string>
+    <string name="продолжить">Продолжить</string>
+    <string name="setting">Настройки</string>
+    <string name="read">Чтение</string>
+    <string name="write">Запись</string>
+    <string name="disconnect">Отключиться</string>
 </resources>

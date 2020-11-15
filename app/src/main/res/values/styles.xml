@@ -15,4 +15,19 @@
 
     </style>
 
+    <style name="MainBtn" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">0dp</item>
+
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+        <item name="backgroundTint">@color/colorBlueDark</item>
+        <item name="android:textColor">@color/colorWhight</item>
+        <item name="android:layout_marginBottom">12dp</item>
+
+
+
+
+    </style>
+
 </resources>

@@ -33,13 +33,11 @@ class TempHumidityFragment:Fragment() {
         }
 
 
-        tempHumViewModel.bufferForTempAndHum.observe(viewLifecycleOwner, object : Observer<String?> {
-            override fun onChanged( s: String?) {
+        tempHumViewModel.bufferForTempAndHum.observe(viewLifecycleOwner,
+            { s ->
                 if (s!=null) {
                     temperatureTV.text=s.toString()
                 }
-
-            }
-        })
+            })
     }
 }
