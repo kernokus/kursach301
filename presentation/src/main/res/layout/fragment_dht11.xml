@@ -54,8 +54,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/readInfoTV"
             style="@style/MainBtn"
-            android:text="@={viewmodel.textValue}"
-            android:onClick="@{() -> viewmodel.testOnClick()}"
+            android:text="@string/read_info_fromMK"
+            android:onClick="@{() -> viewmodel.getTempFromDht11()}"
             app:layout_constraintBottom_toTopOf="@+id/gl_hor_1"
             app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
             app:layout_constraintHorizontal_bias="0.5"

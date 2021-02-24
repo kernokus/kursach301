@@ -31,10 +31,10 @@ class MenuFragment:Fragment() {
         ) { tab, position ->
             when (position) {
                 0 -> {
-                    tab.text = "HelloWorld" //tab.icon= activity?.getDrawable(R.drawable.temperature_view_pager_1_icon)
+                    tab.text = "DHT11" //tab.icon= activity?.getDrawable(R.drawable.temperature_view_pager_1_icon)
                      }
-                1 -> { tab.text = "DHT11" }
-                2 -> { tab.text = "Резерв" }
+                1 -> { tab.text = "2 датчик" }
+                2 -> { tab.text = "3 датчик" }
             }
         }.attach()
     }

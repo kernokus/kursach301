@@ -6,4 +6,5 @@
     <string name="read">Чтение</string>
     <string name="write">Запись</string>
     <string name="disconnect">Отключиться</string>
+    <string name="read_info_fromMK">Считать данные с датчика</string>
 </resources>

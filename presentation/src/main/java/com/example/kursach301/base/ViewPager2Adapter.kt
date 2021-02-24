@@ -13,8 +13,8 @@ class ViewPager2Adapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> SampleTransmissionFragment()
-            1 -> DHT11Fragment()
+            1 -> SampleTransmissionFragment()
+            0 -> DHT11Fragment()
             else -> return SettingFragment()
         }
     }

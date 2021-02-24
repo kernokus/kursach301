@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DHT11Fragment:Fragment() {
-    private val DHT11ViewModel: DHT11ViewModel by viewModels()
+    private val dhT11ViewModel: DHT11ViewModel by viewModels()
     private lateinit var binding :FragmentDht11Binding
     override fun onCreateView (
         inflater: LayoutInflater,
@@ -23,7 +23,7 @@ class DHT11Fragment:Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dht11, container, false)
-        binding.viewmodel = DHT11ViewModel
+        binding.viewmodel = dhT11ViewModel
         binding.lifecycleOwner=this
         return binding.root
     }
