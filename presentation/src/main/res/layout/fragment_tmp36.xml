@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="viewmodel"
-            type="com.example.kursach301.viewModels.SampleTransmissionViewModel"/>
+            type="com.example.kursach301.viewModels.TMP36ViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,13 +29,13 @@
             app:layout_constraintGuide_percent="0.9" />
 
         <TextView
-            android:id="@+id/bufferTV"
+            android:id="@+id/temperatureTV"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:textSize="30sp"
+            android:textSize="20sp"
+            android:text="@{viewmodel.tempFromTmp36}"
             android:textColor="@color/colorBlueDark"
-            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
             app:layout_constraintStart_toStartOf="@+id/gl_hor_4"
             app:layout_constraintTop_toTopOf="@+id/gl_hor_1">
@@ -56,37 +57,10 @@
             app:layout_constraintGuide_percent="0.9" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/connectMK_btn"
-            style="@style/MainBtn"
-            android:text="@string/connectMK"
-            android:onClick="@{() -> viewmodel.connect()}"
-            app:layout_constraintBottom_toTopOf="@+id/disconnectBtn"
-            app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
-            app:layout_constraintStart_toStartOf="@+id/gl_hor_4" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/readMK_btn"
-            style="@style/MainBtn"
-            android:text="@string/read"
-            android:onClick="@{() -> viewmodel.read()}"
-            app:layout_constraintBottom_toTopOf="@+id/connectMK_btn"
-            app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
-            app:layout_constraintStart_toStartOf="@+id/gl_hor_4" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/writeMK_btn"
-            style="@style/MainBtn"
-            android:text="@string/write"
-            android:onClick="@{() -> viewmodel.send()}"
-            app:layout_constraintBottom_toTopOf="@+id/readMK_btn"
-            app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
-            app:layout_constraintStart_toStartOf="@+id/gl_hor_4" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/disconnectBtn"
             style="@style/MainBtn"
-            android:text="@string/disconnect"
-            android:onClick="@{() -> viewmodel.disconnect()}"
+            android:text="Считать данные с TMP36"
+            android:onClick="@{() -> viewmodel.getTemperatureFromTmp36()}"
             app:layout_constraintBottom_toTopOf="@+id/gl_hor_2"
             app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
             app:layout_constraintStart_toStartOf="@+id/gl_hor_4">

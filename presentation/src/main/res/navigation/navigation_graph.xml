@@ -10,15 +10,15 @@
             android:id="@+id/action_startingFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
         <action
-            android:id="@+id/action_startingFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
+            android:id="@+id/action_startingFragment_to_simultaneousMeasurementFragment"
+            app:destination="@id/simultaneousMeasurementFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.example.kursach301.view.SettingFragment"
-        android:label="SettingFragment" />
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.kursach301.view.MenuFragment"
         android:label="MenuFragment" />
+    <fragment
+        android:id="@+id/simultaneousMeasurementFragment"
+        android:name="com.example.kursach301.view.SimultaneousMeasurementFragment"
+        android:label="SimultaneousMeasurementFragment" />
 </navigation>

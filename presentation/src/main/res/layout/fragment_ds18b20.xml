@@ -5,15 +5,24 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.kursach301.viewModels.StartingViewModel"/>
-        <variable
-        name="fragmentt"
-        type="com.example.kursach301.view.StartingFragment"/>
+            type="com.example.kursach301.viewModels.DS18B20ViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/temperatureTV"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@{viewmodel.tempFromDs18b20}"
+            android:textColor="@color/colorBlueDark"
+            app:layout_constraintBottom_toTopOf="@+id/gl_hor_4"
+            app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
+            app:layout_constraintStart_toStartOf="@+id/gl_hor_2" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_hor_1"
@@ -21,6 +30,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_hor_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_hor_2"
@@ -36,33 +52,14 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.9" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bluetooth_icon_100"
-            app:layout_constraintBottom_toTopOf="@+id/continueBtn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/continueBtn"
+            android:id="@+id/readInfoTV"
             style="@style/MainBtn"
-            android:text="@string/sensors"
-            app:layout_constraintBottom_toTopOf="@+id/settingBtn"
-            app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
-            app:layout_constraintStart_toStartOf="@+id/gl_hor_2" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/settingBtn"
-            style="@style/MainBtn"
-            android:text="@string/simultaneousMeasurement"
+            android:text="@string/read_info_fromMK"
+            android:onClick="@{() -> viewmodel.getTemperatureFromDs18b20()}"
             app:layout_constraintBottom_toTopOf="@+id/gl_hor_1"
             app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/gl_hor_2" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

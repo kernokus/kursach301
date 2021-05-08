@@ -7,4 +7,7 @@
     <string name="write">Запись</string>
     <string name="disconnect">Отключиться</string>
     <string name="read_info_fromMK">Считать данные с датчика</string>
+    <string name="sensors">Датчики</string>
+    <string name="simultaneousMeasurement">Одновременное измерение</string>
+    <string name="simult_measurement">Считать значения с 3 датчиков</string>
 </resources>

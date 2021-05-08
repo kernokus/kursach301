@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.kursach301.R
-import com.example.kursach301.databinding.FragmentSampleTransmissionBinding
 import com.example.kursach301.databinding.FragmentStartingBinding
 import com.example.kursach301.viewModels.StartingViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +36,7 @@ class StartingFragment:Fragment() {
             findNavController().navigate(R.id.menuFragment)
         }
         binding.settingBtn.setOnClickListener {
-            findNavController().navigate(R.id.settingFragment)
+            findNavController().navigate(R.id.simultaneousMeasurementFragment)
         }
     }
 }

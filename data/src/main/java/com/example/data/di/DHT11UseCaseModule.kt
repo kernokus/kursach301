@@ -1,7 +1,7 @@
 package com.example.data.di
 
 import com.example.data.repoImpl.DHT11RepoImpl
-import com.example.domain.repositories.I_DHT11UseCase
+import com.example.domain.repositories.I_MainBleUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,5 +13,7 @@ import dagger.hilt.components.SingletonComponent
 @Module
 abstract class DHT11UseCaseModule {
     @Binds
-    abstract fun bindInterface(firstRepo: DHT11RepoImpl): I_DHT11UseCase //аргумент - где реализован интерфейс
+    abstract fun bindInterface(repoImpl: DHT11RepoImpl): I_MainBleUseCase //аргумент - где реализован интерфейс
 }
+
+

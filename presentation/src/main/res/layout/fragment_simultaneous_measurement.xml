@@ -4,8 +4,8 @@
 
     <data>
         <variable
-        name="viewmodel"
-        type="com.example.kursach301.viewModels.DHT11ViewModel"/>
+            name="viewmodel"
+            type="com.example.kursach301.viewModels.SimultaneousMeasurementViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,16 +13,46 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/temperatureTV"
+            android:id="@+id/temperatureDHT"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:textSize="20sp"
-            android:text="@{viewmodel.tempAndHumFromDht11}"
+            android:text="@{viewmodel.tempFromDht11}"
+            android:textSize="22sp"
             android:textColor="@color/colorBlueDark"
             app:layout_constraintBottom_toTopOf="@+id/gl_hor_4"
             app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
             app:layout_constraintStart_toStartOf="@+id/gl_hor_2" />
+
+        <TextView
+            android:id="@+id/temperatureTMP36"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="@{viewmodel.tempFromTmp36}"
+            android:textColor="@color/colorBlueDark"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/gl_hor_4"
+            app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/gl_hor_2"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureDHT"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/temperatureDS18B20"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:textColor="@color/colorBlueDark"
+            android:textSize="22sp"
+            android:text="@{viewmodel.tempFromDs18b20}"
+            app:layout_constraintBottom_toTopOf="@+id/gl_hor_4"
+            app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/gl_hor_2"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureTMP36"
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_hor_1"
@@ -36,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.35" />
+            app:layout_constraintGuide_percent="0.25" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_hor_2"
@@ -55,8 +85,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/readInfoTV"
             style="@style/MainBtn"
-            android:text="@string/read_info_fromMK"
-            android:onClick="@{() -> viewmodel.getTempFromDht11()}"
+            android:text="@string/simult_measurement"
+            android:onClick="@{() -> viewmodel.getTemperatureFrom3Sensors()}"
             app:layout_constraintBottom_toTopOf="@+id/gl_hor_1"
             app:layout_constraintEnd_toStartOf="@+id/gl_hor_3"
             app:layout_constraintHorizontal_bias="0.5"
